@@ -1,0 +1,174 @@
+<html>
+
+<head>
+
+    <title>SHIT</title>
+
+    <script>
+
+    window.onload = function () {
+        // Track how many images are loaded
+        var imagesLoaded = 0;
+        var totalImages = 12; // Total number of images to load
+
+        // Function to check if all images are loaded before drawing
+        function checkAllImagesLoaded() {
+            imagesLoaded++;
+            if (imagesLoaded === totalImages) {
+                buildshit(); // Call the build function when all images are loaded
+                document.getElementById('download').disabled = false; // Enable the download button
+            }
+        }
+
+        //SKY
+        var SKY = new Image();
+        var SKYnum = Math.floor(Math.random() * 9) + 1;
+        var SKYname = "SKY" + SKYnum + ".png";
+        SKY.src = SKYname;
+        SKY.onload = checkAllImagesLoaded;
+
+        //LANDSCAPE
+        var LANDSCAPE = new Image();
+        var LANDSCAPEnum = Math.floor(Math.random() * 9) + 1;
+        var LANDSCAPEname = "LANDSCAPE" + LANDSCAPEnum + ".png";
+        LANDSCAPE.src = LANDSCAPEname;
+        LANDSCAPE.onload = checkAllImagesLoaded;
+
+        //BLACKBODY
+        var BLACKBODY = new Image();
+        var BLACKBODYnum = Math.floor(Math.random() * 9) + 1;
+        var BLACKBODYname = "BLACKBODY" + BLACKBODYnum + ".png";
+        BLACKBODY.src = BLACKBODYname;
+        BLACKBODY.onload = checkAllImagesLoaded;
+
+        //SPRAY
+        var SPRAY = new Image();
+        var SPRAYnum = Math.floor(Math.random() * 9) + 1;
+        var SPRAYname = "SPRAY" + SPRAYnum + ".png";
+        SPRAY.src = SPRAYname;
+        SPRAY.onload = checkAllImagesLoaded;
+
+        //STROKES
+        var STROKES = new Image();
+        var STROKESnum = Math.floor(Math.random() * 9) + 1;
+        var STROKESname = "STROKES" + STROKESnum + ".png";
+        STROKES.src = STROKESname;
+        STROKES.onload = checkAllImagesLoaded;
+
+        //LINES
+        var LINES = new Image();
+        var LINESnum = Math.floor(Math.random() * 6) + 1;
+        var LINESname = "LINES" + LINESnum + ".png";
+        LINES.src = LINESname;
+        LINES.onload = checkAllImagesLoaded;
+
+        //GLOBS
+        var GLOBS = new Image();
+        var GLOBSnum = Math.floor(Math.random() * 9) + 1;
+        var GLOBSname = "GLOBS" + GLOBSnum + ".png";
+        GLOBS.src = GLOBSname;
+        GLOBS.onload = checkAllImagesLoaded;
+
+        //DRIPS
+        var DRIPS = new Image();
+        var DRIPSnum = Math.floor(Math.random() * 6) + 1;
+        var DRIPSname = "DRIPS" + DRIPSnum + ".png";
+        DRIPS.src = DRIPSname;
+        DRIPS.onload = checkAllImagesLoaded;
+
+        //EARS
+        var EARS = new Image();
+        var EARSnum = Math.floor(Math.random() * 6) + 1;
+        var EARSname = "EARS" + EARSnum + ".png";
+        EARS.src = EARSname;
+        EARS.onload = checkAllImagesLoaded;
+
+        //RIGHTEYE
+        var RIGHTEYE = new Image();
+        var RIGHTEYEnum = Math.floor(Math.random() * 9) + 1;
+        var RIGHTEYEname = "RIGHTEYE" + RIGHTEYEnum + ".png";
+        RIGHTEYE.src = RIGHTEYEname;
+        RIGHTEYE.onload = checkAllImagesLoaded;
+
+        //NOSE
+        var NOSE = new Image();
+        var NOSEnum = Math.floor(Math.random() * 9) + 1;
+        var NOSEname = "NOSE" + NOSEnum + ".png";
+        NOSE.src = NOSEname;
+        NOSE.onload = checkAllImagesLoaded;
+
+        //LEFTEYE
+        var LEFTEYE = new Image();
+        var LEFTEYEnum = Math.floor(Math.random() * 9) + 1;
+        var LEFTEYEname = "LEFTEYE" + LEFTEYEnum + ".png";
+        LEFTEYE.src = LEFTEYEname;
+        LEFTEYE.onload = checkAllImagesLoaded;
+
+        //SHIT (build the canvas with all images)
+        function buildshit() {
+            var canvas = document.getElementById('canvas');
+            var ctx = canvas.getContext('2d');
+            canvas.width = 1200;
+            canvas.height = 1200;
+
+            ctx.drawImage(SKY, ((1200 - SKY.width) / 2), 0);
+            ctx.drawImage(LANDSCAPE, ((1200 - LANDSCAPE.width) / 2), 0);
+            ctx.drawImage(BLACKBODY, ((1200 - BLACKBODY.width) / 2), 0);
+            ctx.drawImage(SPRAY, ((1200 - SPRAY.width) / 2), 0);
+            ctx.drawImage(STROKES, ((1200 - STROKES.width) / 2), 0);
+            ctx.drawImage(LINES, ((1200 - LINES.width) / 2), 0);
+            ctx.drawImage(GLOBS, ((1200 - GLOBS.width) / 2), 0);
+            ctx.drawImage(DRIPS, ((1200 - DRIPS.width) / 2), 0);
+            ctx.drawImage(EARS, ((1200 - EARS.width) / 2), 0);
+            ctx.drawImage(RIGHTEYE, ((1200 - RIGHTEYE.width) / 2), 0);
+            ctx.drawImage(NOSE, ((1200 - NOSE.width) / 2), 0);
+            ctx.drawImage(LEFTEYE, ((1200 - LEFTEYE.width) / 2), 0);
+
+            console.log("Canvas is built with all images.");
+        }
+
+        // Event listener for download button without ReImg
+        document.getElementById('download').addEventListener('click', function(e) {
+            let canvas = document.getElementById('canvas');
+            let canvasUrl = canvas.toDataURL('image/png');
+
+            // Create an anchor element to trigger the download
+            let link = document.createElement('a');
+            link.href = canvasUrl;
+            link.download = 'canvas_image.png';
+
+            // Simulate a click to trigger the download
+            link.click();
+        });
+    }
+
+    </script>
+
+</head>
+
+<body>
+
+<div align="center">
+
+    <header style="height:120px;width:1000px;font-size: 20px;font-family: Impact;position:center;">
+        <h1>OK PAINTINGS</h1>
+    </header>
+    
+    <canvas id="canvas" scale=relative; style="border:5px solid #ffffff;"></canvas>
+    <br><br>
+
+    <!-- POTA button to reload the page -->
+    <button onClick="window.location.reload();" style="height:150px;width:200px;font-size: 20px;font-family: Impact;">
+        <h1>POTA</h1>
+    </button>
+
+    <!-- Download button to save the canvas -->
+    <button id="download" style="height:150px;width:200px;font-size: 20px;font-family: Impact;" disabled>
+        <h1>AYAW</h1>
+    </button>
+
+</div>
+
+</body>
+
+</html>
